@@ -52,7 +52,7 @@ for i in range(len(upc)):
         print(url)
         # price = self.find_element(By.ID, "priceblock_ourprice").text
         try:
-            self.find_element(By.XPATH, "(//*[contains(text(), 'Paperback')])[2]")
+            self.find_element(By.XPATH, "(//*[contains(text(), 'Paperback')])[2]").click()
             time.sleep(2)
         except:
             print("no paperback edition")
