@@ -69,11 +69,18 @@ for i in range(len(upc)):
         print(rank)
     except:
         print("Product not found")
-    rank=list(rank)
+    rank = list(rank)
     if ":" in rank:
-        tmp=rank.index(":")
-        rank=rank[tmp+1:]
-    rank=''.join(rank)
+        tmp = rank.index(":")
+        rank = rank[tmp+1:]
+    rank = ''.join(rank)
+    price = list(price)
+    if " " in price:
+        for j in range(len(price)):
+            if price[j] == ' ':
+                break
+        price=price[:j]
+    price = ''.join(price)
     csvFile = open("extracted_data.csv", 'a', newline='')
     csvWriter = csv.writer(csvFile)
     csvWriter.writerow([upc[i], url, price, rank])
