@@ -16,7 +16,7 @@ file_name = 'UPC_Codes.csv'
 
 upc_codes = pd.read_csv(file_name, encoding="ISO-8859-1", usecols=range(0, 1))
 print(upc_codes.head())
-upc = [x for x in upc_codes["UPS_codes"]]
+upc = [x for x in upc_codes["UPC_codes"]]
 
 self = webdriver.Chrome()
 
@@ -29,7 +29,7 @@ csvFile = open("extracted_data.csv", 'w', newline='')
 csvWriter = csv.writer(csvFile)
 csvWriter.writerow(["UPC", "URL", "PRICE", "RANK"])
 
-for i in range(78, 92):
+for i in range(len(upc)):
     print("Processing code num: ", i)
     self.find_element(By.ID, "twotabsearchtextbox").click()
     element = self.find_element(By.CSS_SELECTOR, ".nav-search-submit > .nav-input")
