@@ -25,7 +25,7 @@ self.get(website_URL)
 
 time.sleep(10)
 
-csvFile = open("file_name.csv", 'w', newline='')
+csvFile = open("extracted_data.csv", 'w', newline='')
 csvWriter = csv.writer(csvFile)
 csvWriter.writerow(["UPC", "URL", "PRICE", "RANK"])
 
@@ -57,7 +57,7 @@ for i in range(78, 92):
         print(rank)
     except:
         print("Product not found")
-    csvFile = open("file_name.csv", 'a', newline='')
+    csvFile = open("extracted_data.csv", 'a', newline='')
     csvWriter = csv.writer(csvFile)
     csvWriter.writerow([upc[i], url, price, rank])
 self.close()
