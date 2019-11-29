@@ -36,9 +36,9 @@ for i in range(len(upc)):
     actions = ActionChains(self)
     actions.move_to_element(element).perform()
     self.find_element(By.ID, "twotabsearchtextbox").clear()
-    url = "item not found"
-    price = "item not found"
-    rank = "item not found"
+    url = "url not found"
+    price = "price not found"
+    rank = "rank not found"
     try:
         self.find_element(By.ID, "twotabsearchtextbox").send_keys(upc[i])
         self.find_element(By.CSS_SELECTOR, ".nav-search-submit > .nav-input").click()
@@ -50,10 +50,22 @@ for i in range(len(upc)):
         time.sleep(2)
         url = self.current_url
         print(url)
-        price = self.find_element(By.ID, "priceblock_ourprice").text
+        # price = self.find_element(By.ID, "priceblock_ourprice").text
+        try:
+            self.find_element(By.XPATH, "(//*[contains(text(), 'Paperback')])[2]")
+            time.sleep(2)
+        except:
+            print("no paperback edition")
+
+        try:
+            price = self.find_element(By.XPATH, "(//*[contains(@class, 'a-color-price')])[1]").text
+        except:
+            price = "nothing"
+
         print(price)
-        rank = self.find_element(By.XPATH,
-                                 "//*[@id='prodDetails']//tr[contains(., 'Best Sellers Rank')]//td").text
+        # rank = self.find_element(By.XPATH,
+        #                          "//*[@id='productDetailsTable']//tr[contains(., 'Best Sellers Rank')]//td").text
+        rank = self.find_element(By.XPATH, "//*[@id='SalesRank']").text
         print(rank)
     except:
         print("Product not found")

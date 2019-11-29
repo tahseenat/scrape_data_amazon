@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71bec50a-7f07-4d4a-a822-732cd2dbf8f4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/UPC_Codes9.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extracted_data.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UPC_Codes.csv" beforeDir="false" afterPath="$PROJECT_DIR$/UPC_Codes.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UPC_Codes9.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract_data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract_data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extracted_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/extracted_data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file_name.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -63,7 +66,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575038042226</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="list index out of range solved">
+      <created>1575042200875</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1575042200875</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -80,6 +90,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Filename" />
-    <option name="LAST_COMMIT_MESSAGE" value="Filename" />
+    <MESSAGE value="list index out of range solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="list index out of range solved" />
   </component>
 </project>
