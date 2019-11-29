@@ -72,7 +72,7 @@ for i in range(len(upc)):
     rank = list(rank)
     if ":" in rank:
         tmp = rank.index(":")
-        rank = rank[tmp+1:]
+        rank = rank[tmp+2:]
     rank = ''.join(rank)
     price = list(price)
     if " " in price:
