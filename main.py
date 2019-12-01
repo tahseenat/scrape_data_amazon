@@ -12,7 +12,7 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import pandas as pd
 import csv
 
-file_name = 'UPC_Codes.csv'
+file_name = 'UPC_codes.csv'
 
 upc_codes = pd.read_csv(file_name, encoding="ISO-8859-1", usecols=range(0, 1))
 print(upc_codes.head())
@@ -39,42 +39,70 @@ for i in range(len(upc)):
     url = "url not found"
     price = "price not found"
     rank = "rank not found"
+    tempupc = upc[i]
+    tempupc = str(tempupc)
+    tempupc = "0"*(13 - len(tempupc)) + tempupc
+
     try:
-        self.find_element(By.ID, "twotabsearchtextbox").send_keys(upc[i])
+        self.find_element(By.ID, "twotabsearchtextbox").send_keys(tempupc)
         self.find_element(By.CSS_SELECTOR, ".nav-search-submit > .nav-input").click()
+
         # temp = str(upc[i])
         # temp.replace("+","%2B")
-        self.find_element(By.XPATH,
-                          "//*[@class ='a-link-normal a-text-normal' and contains(@href,'keywords=" + upc[
-                              i] + "&')][1]").click()
+
+        # click on the product
+        try:
+            self.find_element(By.XPATH,
+                              "//*[@class ='a-link-normal a-text-normal' and contains(@href,'keywords=" + tempupc +
+                              "&')][1]").click()
+            url = self.current_url
+        except:
+            try:
+                self.find_element(By.XPATH,
+                                  "//*[@class ='a-link-normal a-text-normal' and contains(@href,'keywords={}')]".
+                                  format(tempupc)).click()
+                url = self.current_url
+            except:
+                print("")
         time.sleep(2)
-        url = self.current_url
-        print(url)
-        # price = self.find_element(By.ID, "priceblock_ourprice").text
+
+        # Paperback edition
         try:
             self.find_element(By.XPATH, "(//*[contains(text(), 'Paperback')])[2]").click()
             time.sleep(2)
         except:
             print("no paperback edition")
 
+        # price script
         try:
             price = self.find_element(By.XPATH, "(//*[contains(@class, 'a-color-price')])[1]").text
         except:
             price = "nothing"
 
-        print(price)
-        # rank = self.find_element(By.XPATH,
-        #                          "//*[@id='productDetailsTable']//tr[contains(., 'Best Sellers Rank')]//td").text
-        rank = self.find_element(By.XPATH, "//*[@id='SalesRank']").text
-        print(rank)
+        # rank script
+        try:
+            rank = self.find_element(By.XPATH,
+                                     "//*[contains(@id, 'productDetails')]//tr[contains(., 'Best Sellers Rank')]//td").text
+        except:
+            rank = self.find_element(By.XPATH, "//*[@id='SalesRank']").text
+
     except:
         print("Product not found")
-    rank=list(rank)
+    rank = list(rank)
     if ":" in rank:
-        tmp=rank.index(":")
-        rank=rank[tmp+1:]
-    rank=''.join(rank)
+        tmp = rank.index(":")
+        rank = rank[tmp + 2:]
+    rank = ''.join(rank)
+    price = list(price)
+    if " " in price:
+        for j in range(len(price)):
+            if price[j] == ' ':
+                break
+        price = price[:j]
+    price = ''.join(price)
     csvFile = open("extracted_data.csv", 'a', newline='')
     csvWriter = csv.writer(csvFile)
-    csvWriter.writerow([upc[i], url, price, rank])
+    print("\n\n", tempupc, price, rank)
+    csvWriter.writerow([tempupc, url, price, rank])
 self.close()
+0045496529130
