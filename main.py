@@ -105,4 +105,3 @@ for i in range(len(upc)):
     print("\n\n", tempupc, price, rank)
     csvWriter.writerow([tempupc, url, price, rank])
 self.close()
-0045496529130
