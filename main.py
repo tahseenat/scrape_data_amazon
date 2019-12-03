@@ -36,7 +36,7 @@ for i in range(len(upc)):
     actions.move_to_element(element).perform()
     self.find_element(By.ID, "twotabsearchtextbox").clear()
     url = "url not found"
-    price = "price not found"
+    price = "price_not_found"
     rank = "rank not found"
     asin = "asin code not available"
     tempupc = upc[i]
@@ -55,12 +55,14 @@ for i in range(len(upc)):
             self.find_element(By.XPATH,
                               "//*[@class ='a-link-normal a-text-normal' and contains(@href,'keywords=" + tempupc +
                               "&')][1]").click()
+            price = self.find_element(By.XPATH, "(//*[contains(@class, 'a-color-price')])[1]").text
             url = self.current_url
         except:
             try:
                 self.find_element(By.XPATH,
                                   "//*[@class ='a-link-normal a-text-normal' and contains(@href,'keywords={}')]".
                                   format(tempupc)).click()
+                price = self.find_element(By.XPATH, "(//*[contains(@class, 'a-color-price')])[1]").text
                 url = self.current_url
             except:
                 print("")
@@ -79,10 +81,10 @@ for i in range(len(upc)):
             print("")
 
         # price script
-        try:
-            price = self.find_element(By.XPATH, "(//*[contains(@class, 'a-color-price')])[1]").text
-        except:
-            price = "nothing"
+        # try:
+        #     price = self.find_element(By.XPATH, "(//*[contains(@class, 'a-color-price')])[1]").text
+        # except:
+        #     price = "nothing"
 
         # rank script
         try:
