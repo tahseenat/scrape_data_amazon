@@ -19,14 +19,16 @@ upc = [x for x in upc_codes["UPC_codes"]]
 
 self = webdriver.Chrome()
 
-website_URL = "https://www.amazon.com/"
+self = webdriver.Chrome(executable_path='D:/Downloads/chromedriver_win32/chromedriver.exe')
+
+website_URL = "https://www.amazon.co.uk/"
 self.get(website_URL)
 
 time.sleep(10)
 
 csvFile = open("extracted_data.csv", 'w', newline='')
 csvWriter = csv.writer(csvFile)
-csvWriter.writerow(["UPC", "URL", "PRICE", "RANK", "ASIN"])
+csvWriter.writerow(["UPC", "URL", "PRICE", "ASIN", "RANK"])
 
 for i in range(len(upc)):
     print("Processing code num: ", i)
@@ -78,7 +80,10 @@ for i in range(len(upc)):
         try:
             asin = self.find_element(By.XPATH, "//*[contains(@id, 'productDetails')]//tr[contains(., 'ASIN')]//td").text
         except:
-            print("")
+            try:
+                asin = self.find_element(By.XPATH, "//*[contains(text(), 'ASIN')]").text
+            except:
+                print("")
 
         # price script
         # try:
@@ -91,7 +96,10 @@ for i in range(len(upc)):
             rank = self.find_element(By.XPATH,
                                      "//*[contains(@id, 'productDetails')]//tr[contains(., 'Best Sellers Rank')]//td").text
         except:
-            rank = self.find_element(By.XPATH, "//*[@id='SalesRank']").text
+            try:
+                rank = self.find_element(By.XPATH, "//*[@id='SalesRank']").text
+            except:
+                print("")
 
     except:
         print("Product not found")
@@ -113,6 +121,6 @@ for i in range(len(upc)):
     price = ''.join(price)
     csvFile = open("extracted_data.csv", 'a', newline='')
     csvWriter = csv.writer(csvFile)
-    print("\n\n", tempupc, price, rank, asin)
-    csvWriter.writerow([tempupc, url, price, rank, asin])
+    # print("\n\n", tempupc, price, rank, asin)
+    csvWriter.writerow([tempupc, url, price, asin, rank])
 self.close()
