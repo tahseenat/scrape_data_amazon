@@ -17,8 +17,6 @@ upc_codes = pd.read_csv(file_name, encoding="ISO-8859-1", usecols=range(0, 1))
 print(upc_codes.head())
 upc = [x for x in upc_codes["UPC_codes"]]
 
-self = webdriver.Chrome()
-
 self = webdriver.Chrome(executable_path='D:/Downloads/chromedriver_win32/chromedriver.exe')
 
 website_URL = "https://www.amazon.co.uk/"

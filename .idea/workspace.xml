@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71bec50a-7f07-4d4a-a822-732cd2dbf8f4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/scrolli.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extracted_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/extracted_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575393030360</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="minor fixes">
+      <created>1581345777445</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1581345777445</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -161,15 +165,13 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="537" y="236" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.864@0.0.1536.864" timestamp="1579334044287" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/scrolli.py</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="424" y="27" key="CommitChangelistDialog2" timestamp="1581345775021">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="424" y="27" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1581345775021" />
+    <state x="361" y="166" key="Vcs.Push.Dialog.v2" timestamp="1581345780719">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="361" y="166" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1581345780719" />
   </component>
 </project>
